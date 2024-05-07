@@ -1,14 +1,15 @@
 {
-  "name": "template-cli",
+  "name": "create-boring-portfolio",
   "version": "1.0.0",
   "description": "Project for instantiating projects via cli",
   "main": "index.js",
   "type": "module",
   "bin": {
-    "template-cli": "./index.js"
+    "create-boring-portfolio": "./index.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "link-cli": "npm unlink create-boring-portfolio && npm link create-boring-portfolio"
   },
   "repository": {
     "type": "git",
@@ -21,7 +22,10 @@
   },
   "homepage": "https://github.com/leoroese/template-cli#readme",
   "dependencies": {
-    "inquirer": "^8.0.0"
+    "@clack/prompts": "^0.7.0",
+    "commander": "^12.0.0",
+    "inquirer": "^8.0.0",
+    "picocolors": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.13.10",
