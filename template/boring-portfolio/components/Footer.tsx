@@ -9,9 +9,9 @@ export default function Footer() {
   const links = [
     { href: `${url}/sitemap.xml`, icon: <FaSitemap /> },
     { href: `${url}/feed.xml`, icon: <FaRss />},
-    { href: 'https://github.com/leomosley', icon: <FaGithub />},
-    { href: 'https://www.linkedin.com/in/leo-mosley-606785222/', icon: <FaLinkedin />},
-    { href: 'https://twitter.com/leomosly', icon: <FaXTwitter />},
+    { href: `https://github.com/${process.env.GITHUB_USERNAME}`, icon: <FaGithub />},
+    { href: 'https://www.linkedin.com', icon: <FaLinkedin />},
+    { href: 'https://twitter.com', icon: <FaXTwitter />},
 
   ];
   return (

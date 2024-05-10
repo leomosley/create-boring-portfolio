@@ -1,30 +1,28 @@
 {
   "name": "create-boring-portfolio",
   "version": "1.0.0",
-  "description": "Project for instantiating projects via cli",
+  "description": "CLI tool to create a simple portfolio with blog",
   "main": "index.js",
   "type": "module",
   "bin": {
     "create-boring-portfolio": "./index.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "link-cli": "npm unlink create-boring-portfolio && npm link create-boring-portfolio"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/leoroese/template-cli.git"
+    "url": "git+https://github.com/leomosley/create-boring-portfolio.git"
   },
-  "author": "Leonardo Roese",
-  "license": "ISC",
+  "author": "leomosley",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/leoroese/template-cli/issues"
+    "url": "https://github.com/leomosley/create-boring-portfolio/issues"
   },
-  "homepage": "https://github.com/leoroese/template-cli#readme",
+  "homepage": "https://create-boring-portfolio.vercel.app",
   "dependencies": {
     "@clack/prompts": "^0.7.0",
-    "commander": "^12.0.0",
-    "inquirer": "^8.0.0",
+    "ora": "^8.0.1",
     "picocolors": "^1.0.0"
   },
   "devDependencies": {
