@@ -86,7 +86,8 @@ const runInstallBoilerPlate = (templatePath, newProjectPath, tag, username) => {
 
       if (file === '.npmignore') file = '.gitignore';
 
-      if (file === '.env') {
+      if (file === '.env.example') {
+        file = '.env';
         contents = `GITHUB_USERNAME=${username}\nREPO_TAG=${tag}`;
       }
 
