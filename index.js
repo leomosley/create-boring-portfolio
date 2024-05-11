@@ -139,7 +139,7 @@ const installDependencies = async (dir) => {
 async function main() {
   console.clear();
 	await setTimeout(500);
-  console.log(color.bgCyan(color.black('create-boring-portfolio')));
+  console.log(color.bgCyan(color.black('  create-boring-portfolio  ')));
 
   const options = await group(
     {
