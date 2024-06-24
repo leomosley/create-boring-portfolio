@@ -141,17 +141,16 @@ async function main() {
 	await setTimeout(500);
   console.log(color.bgCyan(color.black('  create-boring-portfolio  ')));
 
-  const options = await group(
-    {
-      dir: () =>
-        text({
-          message: 'What should we name your portfolio?',
-          placeholder: DEFAULT_APP_NAME,
-          defaultValue: DEFAULT_APP_NAME,
-          validate: (value) => {
-            if (value) if (!validateAppName(value)) return "App name must consist of only lowercase alphanumeric characters, '-', and '_'";
-          },
-        }),
+  const options = await group({
+    dir: () =>
+      text({
+        message: 'What should we name your portfolio?',
+        placeholder: DEFAULT_APP_NAME,
+        defaultValue: DEFAULT_APP_NAME,
+        validate: (value) => {
+          if (value) if (!validateAppName(value)) return "App name must consist of only lowercase alphanumeric characters, '-', and '_'";
+        },
+      }),
     username: () =>
       text({
         message: "What's GitHub username?",
