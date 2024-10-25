@@ -1,4 +1,4 @@
-import getBlogs from '@/utils/getBlogs';
+import { getBlogs } from '@/lib/utils';
 import RSS from 'rss';
 
 export function GET() {
@@ -6,7 +6,7 @@ export function GET() {
   const url = process.env.VERCEL_URL
     ? 'https://' + process.env.VERCEL_URL
     : 'http://localhost:3000'
-  ;
+    ;
   const feed = new RSS({
     title: '',
     description: '',
@@ -16,7 +16,7 @@ export function GET() {
     language: '',
     pubDate: '',
   });
-  
+
   blogs.map((blog) => {
     feed.item({
       title: blog.data.title,
@@ -26,7 +26,7 @@ export function GET() {
       author: process.env.GITHUB_USERNAME,
     });
   });
-  
+
   return new Response(feed.xml({ indent: true }), {
     headers: {
       'Content-Type': 'application/atom+xml; charset=utf-8',

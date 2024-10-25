@@ -1,11 +1,11 @@
-import getBlogs from '@/utils/getBlogs';
+import { getBlogs } from "@/lib/utils";
 
 export default function Sitemap() {
   const blogs = getBlogs();
   const url = process.env.VERCEL_URL
     ? 'https://' + process.env.VERCEL_URL
     : 'http://localhost:3000'
-  ;
+    ;
 
   const blogMap = blogs.map((blog) => ({
     url: '/blog/' + blog.data.filename.slice(0, -3),

@@ -2,10 +2,10 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import React from 'react';
 
-import BlogItem from './BlogItem';
-import getBlogs from '@/utils/getBlogs';
+import { BlogItem } from './blog-item';
+import { getBlogs } from '@/lib/utils';
 
-export default function Blogs() {
+export function Blogs() {
   const blogs = getBlogs();
   return (
     <section id='blog' className='w-full space-y-5'>
@@ -20,7 +20,7 @@ export default function Blogs() {
               'underline-offset-4 underline decoration-neutral-500',
               'transition hover:decoration-inherit'
             )}
-            href='/blog'  
+            href='/blog'
           >All posts →
           </Link>
         </div>

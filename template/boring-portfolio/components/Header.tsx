@@ -1,7 +1,7 @@
 import React from 'react';
-import BackButton from './BackButton';
+import { BackButton } from './back-button';
 
-export default function Header() {
+export function Header() {
   return (
     <header id='header' className='flex mb-4'>
       <BackButton />

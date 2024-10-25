@@ -1,4 +1,3 @@
-import React from 'react';
 import clsx from 'clsx';
 
 interface Repo {
@@ -17,6 +16,7 @@ async function getRepos() {
     console.error(error);
   }
 }
+
 async function getProjectRepos() {
   const repos = await getRepos();
   if (repos) {
@@ -25,12 +25,13 @@ async function getProjectRepos() {
   }
 }
 
-export default async function Projects() {
+export async function Projects() {
   const repos = await getProjectRepos();
+
   return (
-    <section id='projects' className='w-full space-y-5'>
-      <h2 className='text-xl font-bold mt-12'>Projects</h2>
-      <div className='grid grid-cols-2 gap-6 md:grid-cols-3'>
+    <section id='projects' className='w-full'>
+      <h2 className='text-xl font-bold mt-12 mb-5'>Projects</h2>
+      <div className='grid grid-cols-2 gap-6 md:grid-cols-3 mb-6'>
         {repos?.slice(0, 6).map((repo, index) => (
           <div key={index} className='flex flex-1 flex-col space-y-2'>
             <a
@@ -39,13 +40,23 @@ export default async function Projects() {
                 'transition hover:decoration-inherit'
               )}
               target='_blank'
-              href={repo.html_url}  
+              href={repo.html_url}
             >{repo.name}
             </a>
             <p className='text-neutral-300'>{repo.description}</p>
           </div>
         ))}
       </div>
+      <a
+        className={clsx(
+          'underline-offset-4 underline decoration-neutral-500',
+          'transition hover:decoration-inherit'
+        )}
+        target='_blank'
+        href={`https://github.com/${process.env.GITHUB_USERNAME}`}
+      >
+        All projects →
+      </a>
     </section>
   );
 }

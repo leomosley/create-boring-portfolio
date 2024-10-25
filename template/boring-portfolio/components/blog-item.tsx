@@ -9,11 +9,11 @@ interface Props {
   date?: boolean;
 }
 
-export default function BlogItem({ 
+export function BlogItem({
   blog,
-  description=false,
-  date=true
-} : Props) {
+  description = false,
+  date = true
+}: Props) {
   return (
     <div className='flex'>
       <div className='flex flex-col space-y-1'>
@@ -22,7 +22,7 @@ export default function BlogItem({
             'underline-offset-4 underline decoration-neutral-500',
             'transition hover:decoration-inherit'
           )}
-          href={`/blog/${blog.data.filename.slice(0, -3)}`}  
+          href={`/blog/${blog.data.filename.slice(0, -3)}`}
         >{blog.data.title}
         </Link>
         {description && <p className='text-neutral-300'>{blog.data.description}</p>}
