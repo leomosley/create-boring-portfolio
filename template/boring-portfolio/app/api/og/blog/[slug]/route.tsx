@@ -2,7 +2,8 @@ import { getBlog } from '@/lib/utils';
 import { ImageResponse } from 'next/og';
 import { NextRequest } from 'next/server';
 
-export async function GET(req: NextRequest, { params }: { params: { slug: string } }) {
+export async function GET(req: NextRequest, props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const blog = getBlog(params.slug + '.md');
 
   return new ImageResponse(
