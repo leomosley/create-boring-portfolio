@@ -31,7 +31,7 @@ const logger = {
 
 const runCommand = (command) => {
   try {
-    execSync(command, {stdio: 'pipe'});
+    execSync(command, { stdio: 'pipe' });
   } catch (e) {
     console.error(e);
   }
@@ -107,7 +107,7 @@ const installBoilerPlate = async (templatePath, dir, tag, username) => {
   const loadingSpinner = ora('Installing...').start();
   try {
     runInstallBoilerPlate(templatePath, dir, tag, username);
-  
+
     loadingSpinner.succeed(
       color.green("Successfully installed boilerplate!\n")
     );
@@ -116,13 +116,13 @@ const installBoilerPlate = async (templatePath, dir, tag, username) => {
       color.red(error)
     );
   }
-  
+
 };
 
 const installDependencies = async (dir) => {
   logger.info("Installing dependencies...");
   const loadingSpinner = ora('Installing...').start();
-  const installed = runCommand(`cd ${dir} && npm install --save-dev next@14.0.4`)
+  const installed = runCommand(`cd ${dir} && npm install`)
 
   if (installed) {
     loadingSpinner.succeed(
@@ -138,7 +138,7 @@ const installDependencies = async (dir) => {
 
 async function main() {
   console.clear();
-	await setTimeout(500);
+  await setTimeout(500);
   console.log(color.bgCyan(color.black('  create-boring-portfolio  ')));
 
   const options = await group({
@@ -167,7 +167,7 @@ async function main() {
           if (value) if (!validateRepoTag(value)) return "Not a valid topic tag";
         }
       })
-    },
+  },
     {
       onCancel: () => {
         cancel('Operation cancelled.');
@@ -177,7 +177,7 @@ async function main() {
   );
 
   fs.mkdirSync(`${CURR_DIR}/${options.dir}`);
-  
+
   await installBoilerPlate(TEMPLATE_PATH, options.dir, options.tag, options.username);
 
   await installDependencies(options.dir);
