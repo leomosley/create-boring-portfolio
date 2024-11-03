@@ -122,7 +122,7 @@ const installBoilerPlate = async (templatePath, dir, tag, username) => {
 const installDependencies = async (dir) => {
   logger.info("Installing dependencies...");
   const loadingSpinner = ora('Installing...').start();
-  const installed = runCommand(`cd ${dir} && npm install`)
+  const installed = runCommand(`cd ${dir} && npm install --legacy-peer-deps`)
 
   if (installed) {
     loadingSpinner.succeed(
